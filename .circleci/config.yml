@@ -1,44 +1,9 @@
+---
 version: 2.1
-
-commands:
-  deploy-backend:
-    parameters:
-      when:
-        type: string
-      stackName:
-        type: string
-      platform:
-        type: string
-    steps:
-      - run: exit 1
-      - run:
-          command: echo "FAILED"
-          when: on_fail
-      - when:
-          condition:
-            and:
-              - equal: [on_fail, <<parameters.when>>]
-              - equal: [prod, <<parameters.platform>>]
-          steps:
-            - run:
-                name: Tag deployment
-                command: |
-                  echo "faileddd"
-                when: on_fail
-
 jobs:
   build:
     docker:
-      - image: cimg/node:17.2.0
+      - image: cimg/base:stable
     steps:
       - checkout
-      - run: echo "test"
-      - deploy-backend:
-          stackName: $(cat cat-name.txt)
-          platform: "prod"
-          when: on_fail
-
-workflows:
-  workflow1:
-    jobs:
-      - build
+      - run: echo "Hello"
