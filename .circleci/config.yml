@@ -6,4 +6,6 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run: yarn dev
+      - run: yarn run percy exec -- cypress run
       - run: echo "Hello"
