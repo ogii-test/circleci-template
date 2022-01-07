@@ -19,4 +19,4 @@ jobs:
           command: yarn dev && sleep 10
           background: true
       - run: yarn run percy exec -- cypress run
-      - run: echo "Hello"
+      - run: yarn percy snapshot .circleci/www.yml
