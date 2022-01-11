@@ -1,9 +1,23 @@
 ---
 version: 2.1
+orbs:
+  ruby: circleci/ruby@1.3.0
 jobs:
+  parameters:
+    ruby-version:
+      type: string
   build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/ruby:<< parameters.ruby-version >>
     steps:
       - checkout
+      - ruby/install-deps
       - run: echo "Hello"
+
+workflows:
+  build:
+    jobs:
+      - build:
+          matrix:
+            parameters:
+              ruby-version: ["3.1.0", "3.0.3"]
