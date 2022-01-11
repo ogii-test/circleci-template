@@ -3,7 +3,10 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: ubuntu:latest
     steps:
+      - run: |
+          apt-get update && apt-get -y install openssh-server
+          ssh -V
       - checkout
       - run: echo "Hello"
