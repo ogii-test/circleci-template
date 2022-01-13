@@ -21,6 +21,6 @@ jobs:
           command: yarn dev && sleep 10
           background: true
       - run: yarn run percy exec -- cypress run
-      - run: |
-          export PERCY_TOKEN=4234e368e7421bbbaa9b231434f5029f0c157c4b3b35fcea51a2bd8b6e7bd766
-          yarn percy snapshot .circleci/www.yml
+      #- run: |
+          #export PERCY_TOKEN=4234e368e7421bbbaa9b231434f5029f0c157c4b3b35fcea51a2bd8b6e7bd766
+          #yarn percy snapshot .circleci/www.yml
