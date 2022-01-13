@@ -4,8 +4,10 @@ orbs:
   node: circleci/node@5.0.0
 jobs:
   build:
-    docker:
-      - image: 'cypress/base:14'
+    #docker:
+      #- image: 'cypress/base:14'
+    machine:
+      image: ubuntu-2004:202010-01 
     steps:
       - checkout
       - node/install:
