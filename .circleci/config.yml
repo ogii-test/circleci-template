@@ -7,7 +7,7 @@ jobs:
     #docker:
       #- image: 'cypress/base:14'
     machine:
-      image: ubuntu-2004:202010-01 
+      image: ubuntu-2004:202010-01  
     steps:
       - checkout
       - node/install:
